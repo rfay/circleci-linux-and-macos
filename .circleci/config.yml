@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run:
           name: ddev install (macos)
-          command: brew tap drud/ddev && brew install ddev
+          command: brew update && brew tap drud/ddev && brew install ddev
       - run: ddev version
   linux_build:
     machine:
