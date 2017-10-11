@@ -9,7 +9,7 @@ workflows:
     jobs:
       - linux_build:
 
-stages:
+jobs:
   macos_build:
     macos:
       xcode: "8.3.3"
