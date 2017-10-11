@@ -1,13 +1,5 @@
 version: 2
 
-workflows:
-  version: 2
-  macos_build:
-    jobs:
-      - macos_build
-  linux_build:
-    jobs:
-      - linux_build:
 
 jobs:
   macos_build:
@@ -15,7 +7,6 @@ jobs:
       xcode: "8.3.3"
     steps:
       - checkout
-
       - run:
           name: ddev install (macos)
           command: brew tap drud/ddev && brew install ddev
@@ -24,8 +15,17 @@ jobs:
     machine:
       image: circleci/classic:201708-01
     steps:
+      - checkout
       - run:
           name: curl ddev install
           command: curl https://raw.githubusercontent.com/drud/ddev/master/install_ddev.sh | bash
       - run: ddev version
 
+workflows:
+  version: 2
+  macos_build:
+    jobs:
+      - macos_build
+  linux_build:
+    jobs:
+      - linux_build
