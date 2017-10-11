@@ -10,12 +10,9 @@ workflows:
       - linux_build:
 
 stages:
-  build:
-    macos_build:
+  macos_build:
+    macos:
       xcode: "8.3.3"
-
-    working_directory: ~/
-
     steps:
       - checkout
 
@@ -30,4 +27,5 @@ stages:
       - run:
           name: curl ddev install
           command: curl https://raw.githubusercontent.com/drud/ddev/master/install_ddev.sh | bash
+      - run: ddev version
 
