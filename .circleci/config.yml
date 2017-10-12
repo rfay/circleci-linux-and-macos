@@ -15,13 +15,6 @@ workflows:
                 - "/.*/"
             branches:
               ignore: /.*/
-#      - macos_build:
-#          filters:
-#            tags:
-#              only:
-#                - "/.*/"
-#            branches:
-#              ignore: /.*/
 
 jobs:
   macos_build:
