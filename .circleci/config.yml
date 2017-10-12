@@ -6,6 +6,24 @@ workflows:
     jobs:
       - macos_build
       - linux_build
+  tag_build:
+    jobs:
+      # Do linux and macos builds when a tag is pushed.
+      # This doesn't have artifact generation here but ddev build does.
+      - linux_build:
+          filters:
+            tags:
+              only:
+                - "/.*/"
+            branches:
+              ignore: /.*/
+      - macos_build:
+          filters:
+            tags:
+              only:
+                - "/.*/"
+            branches:
+              ignore: /.*/
 
 jobs:
   macos_build:
