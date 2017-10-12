@@ -36,3 +36,4 @@ jobs:
           command: curl https://raw.githubusercontent.com/drud/ddev/master/install_ddev.sh | bash
       - run: ddev version
 
+
